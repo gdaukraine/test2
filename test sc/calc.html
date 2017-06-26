@@ -1,0 +1,47 @@
+<!DOCtype html>
+<html>
+<head>
+	<title>Sannacode</title>
+	<link rel="stylesheet" type="text/css" href="calc.css">
+</head>
+<body>
+	<form name="calc">
+		<table border="2">
+			<tr>
+				<td colspan="4" align="center"><input id="display" name="display" value="0" size="30" maxlength="25"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" 7 " onclick="addChar(this.form.display, '7')"></td>
+				<td align="center"><input type="button" value=" 8 " onclick="addChar(this.form.display, '8')"></td>
+				<td align="center"><input type="button" value=" 9 " onclick="addChar(this.form.display, '9')"></td>
+				<td align="center"><input type="button" value=" / " onclick="addChar(this.form.display, '/')"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" 4 " onclick="addChar(this.form.display, '4')"></td>
+				<td align="center"><input type="button" value=" 5 " onclick="addChar(this.form.display, '5')"></td>
+				<td align="center"><input type="button" value=" 6 " onclick="addChar(this.form.display, '6')"></td>
+				<td align="center"><input type="button" value=" * " onclick="addChar(this.form.display, '*')"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" 1 " onclick="addChar(this.form.display, '1')"></td>
+				<td align="center"><input type="button" value=" 2 " onclick="addChar(this.form.display, '2')"></td>
+				<td align="center"><input type="button" value=" 3 " onclick="addChar(this.form.display, '3')"></td>
+				<td align="center"><input type="button" value=" - " onclick="addChar(this.form.display, '-')"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" 0 " onclick="addChar(this.form.display, '0')"></td>
+				<td align="center"><input type="button" value=" . " onclick="addChar(this.form.display, '.')"></td>
+				<td align="center"><input type="button" value=" <-" onclick="deleteChar(this.form.display)"></td>
+				<td align="center"><input type="button" value=" + " onclick="addChar(this.form.display, '+')"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" ( " onclick="addChar(this.form.display, '(')"></td>
+				<td align="center"><input type="button" value=" ) " onclick="addChar(this.form.display, ')')"></td>
+				<td align="center"><input type="button" value=" C " onclick="this.form.display.value = 0 "></td>
+				<td align="center"><input type="button" value=" = " name="enter" onclick="if (checkNum(this.form.display.value)) { compute(this.form) }"></td>
+			</tr>
+		</table>
+	</form> 
+<script src="calc.js" type="text/javascript"></script>
+</body>
+</html>
