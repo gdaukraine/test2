@@ -1,0 +1,110 @@
+<!DOCtype html>
+<html>
+<head>
+	<title>Sannacode</title>
+
+<style type="text/css">
+
+	table {
+		background-color: #bcb393;
+	}
+	td {
+		background-color: #f5efdb;
+	}
+	input {
+		width: 50px;
+		height: 30px;
+	}
+	#display {
+		width: 214px;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	function addChar(input, character) {
+		if(input.value == null || input.value == "0")
+		input.value = character
+		else
+		input.value += character
+	}
+
+	function deleteChar(input) {
+		input.value = input.value.substring(0, input.value.length - 1)
+	}
+
+	function changeSign(input) {
+		if(input.value.substring(0, 1) == "-")
+		input.value = input.value.substring(1, input.value.length)
+		else
+		input.value = "-" + input.value
+	}
+
+	function compute(form) {
+		form.display.value = eval(form.display.value)
+	}
+
+	function square(form) {
+		form.display.value = eval(form.display.value) * eval(form.display.value)
+	}
+
+	function checkNum(str) {
+		for (var i = 0; i < str.length; i++) {
+			var ch = str.substring(i, i+1)
+			if (ch < "0" || ch > "9") {
+			if (ch != "/" && ch != "*" && ch != "+" && ch != "-" && ch != "."
+			&& ch != "(" && ch!= ")") {
+			alert("invalid entry!")
+			return false
+				}
+			}
+		}
+		return true
+	}
+
+</script>
+
+</head>
+<body>
+
+	<form name="calc">
+		<table border="2">
+			<tr>
+				<td colspan="4" align="center"><input id="display" name="display" value="0" size="30" maxlength="25"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" 7 " onclick="addChar(this.form.display, '7')"></td>
+				<td align="center"><input type="button" value=" 8 " onclick="addChar(this.form.display, '8')"></td>
+				<td align="center"><input type="button" value=" 9 " onclick="addChar(this.form.display, '9')"></td>
+				<td align="center"><input type="button" value=" / " onclick="addChar(this.form.display, '/')"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" 4 " onclick="addChar(this.form.display, '4')"></td>
+				<td align="center"><input type="button" value=" 5 " onclick="addChar(this.form.display, '5')"></td>
+				<td align="center"><input type="button" value=" 6 " onclick="addChar(this.form.display, '6')"></td>
+				<td align="center"><input type="button" value=" * " onclick="addChar(this.form.display, '*')"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" 1 " onclick="addChar(this.form.display, '1')"></td>
+				<td align="center"><input type="button" value=" 2 " onclick="addChar(this.form.display, '2')"></td>
+				<td align="center"><input type="button" value=" 3 " onclick="addChar(this.form.display, '3')"></td>
+				<td align="center"><input type="button" value=" - " onclick="addChar(this.form.display, '-')"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" 0 " onclick="addChar(this.form.display, '0')"></td>
+				<td align="center"><input type="button" value=" . " onclick="addChar(this.form.display, '.')"></td>
+				<td align="center"><input type="button" value=" <-" onclick="deleteChar(this.form.display)"></td>
+				<td align="center"><input type="button" value=" + " onclick="addChar(this.form.display, '+')"></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="button" value=" ( " onclick="addChar(this.form.display, '(')"></td>
+				<td align="center"><input type="button" value=" ) " onclick="addChar(this.form.display, ')')"></td>
+				<td align="center"><input type="button" value=" C " onclick="this.form.display.value = 0 "></td>
+				<td align="center"><input type="button" value=" = " name="enter" onclick="if (checkNum(this.form.display.value)) { compute(this.form) }"></td>
+			</tr>
+		</table>
+	</form> 
+
+</body>
+</html>
